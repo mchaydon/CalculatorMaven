@@ -1,0 +1,85 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+
+/* 
+    Created on : Jan 24, 2017, 9:04:39 PM
+    Author     : Mike
+*/
+
+html {
+    background-image: url("background.png");
+    font-family: 'Roboto', sans-serif;
+}
+
+.centerContainer {
+    box-shadow: 1em 0 15px -4px rgba(0, 0, 0, 0.1), -1em 0 8px -4px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    width: 75%;
+    background-color: whitesmoke;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-width: 5px;
+    border-color: #d96f1b;
+}
+
+main {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+header {
+    padding-left: 2em;
+    border-bottom: 1px solid #dcdcdc;
+    margin-bottom: 1em;
+}
+
+.rectangle {
+    width: 20em;
+    height: 10em;
+    margin: 2em;
+    float:left;
+    background-image: url("rect.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.rectangleContainer {
+    align-content: center;
+    margin: auto;
+    width: 31em;
+    height: 20em;
+    padding-top: 2.5em;
+    text-align: center;
+}
+
+.infoContainer {
+    background-color:white;
+    border-radius: 1em;
+    padding-left: 2em;
+    padding-bottom: 2em;
+    padding-top: 1em;
+    margin-bottom: 2em;
+    border: 1px solid #dcdcdc;
+}
+
+.successContainer {
+    background-color: #e1faea;
+    border-radius: 1em;
+    padding-left: 2em;
+    padding-bottom: 2em;
+    padding-top: 1em;
+    margin-bottom: 2em;
+    border: 1px solid #acbeb2;
+}
