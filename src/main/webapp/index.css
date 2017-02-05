@@ -83,3 +83,13 @@ header {
     margin-bottom: 2em;
     border: 1px solid #acbeb2;
 }
+
+.errorContainer {
+    background-color: #f7e4e1;
+    border-radius: 1em;
+    padding-left: 2em;
+    padding-bottom: 2em;
+    padding-top: 1em;
+    margin-bottom: 2em;
+    border: 1px solid #bcaeac;
+}

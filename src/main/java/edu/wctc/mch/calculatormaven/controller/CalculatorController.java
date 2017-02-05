@@ -5,23 +5,24 @@
  */
 package edu.wctc.mch.calculatormaven.controller;
 
+import edu.wctc.mch.calculatormaven.model.CalculatorService;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import edu.wctc.mch.calculatormaven.model.CalculatorService;
 
 /**
  *
  * @author Mike
  */
-@WebServlet(name = "RectangleAreaController", urlPatterns = {"/rac"})
-public class RectangleAreaController extends HttpServlet {
-    private static final String RESULT_PAGE = "results.jsp";
-    private static final String PREVIOUS_PAGE = "labOne.html";
+@WebServlet(name = "CalculatorController", urlPatterns = {"/CalcController"})
+public class CalculatorController extends HttpServlet {
+    private static final String RESULT_PAGE = "labTwo.jsp";
+    private static final String ERROR_MSG = "ERROR";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,7 +49,7 @@ public class RectangleAreaController extends HttpServlet {
         } 
         catch (Exception e) 
         {
-            destination = PREVIOUS_PAGE;
+            request.setAttribute("area", ERROR_MSG);
         }
         
         RequestDispatcher view =
