@@ -51,26 +51,26 @@ public class CalculatorController extends HttpServlet {
             if(calcType.equalsIgnoreCase("Circle"))
             {
                 values[0] = request.getParameter("radiusString");
-                request.setAttribute("area", calculatorService.getResultForType(values, GeometricShape.CIRCLE));
+                request.setAttribute("area", "The area of your circle is " + calculatorService.getResultForType(values, GeometricShape.CIRCLE) + " square feet");
             }
             else if(calcType.equalsIgnoreCase("Triangle"))
             {
                 values[0] = request.getParameter("aSideString");
                 values[1] = request.getParameter("bSideString");
-                request.setAttribute("area", calculatorService.getResultForType(values, GeometricShape.TRIANGLE));
+                request.setAttribute("area", "The hypotenuse side of your triangle " + calculatorService.getResultForType(values, GeometricShape.TRIANGLE));
             }
             else if(calcType.equalsIgnoreCase("Rectangle"))
             {
                 values[0] = request.getParameter("lengthString");
                 values[1] = request.getParameter("widthString");
-                request.setAttribute("area", calculatorService.getResultForType(values, GeometricShape.RECTANGLE));
+                request.setAttribute("area", "The area of your rectangle is " + calculatorService.getResultForType(values, GeometricShape.RECTANGLE) + " square feet");
             }
             else
             {
                 destination = LAB2_RESULT_PAGE;
                 String length = request.getParameter("lengthString");
                 String width = request.getParameter("widthString");
-                request.setAttribute("area", calculatorService.calculateRectangleArea(length, width));
+                request.setAttribute("area", "The area of your rectangle is " + calculatorService.calculateRectangleArea(length, width) + " square feet");
             }
         } 
         catch (Exception e) 
