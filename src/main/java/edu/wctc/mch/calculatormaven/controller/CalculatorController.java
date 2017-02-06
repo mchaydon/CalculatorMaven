@@ -6,6 +6,7 @@
 package edu.wctc.mch.calculatormaven.controller;
 
 import edu.wctc.mch.calculatormaven.model.CalculatorService;
+import edu.wctc.mch.calculatormaven.model.GeometricShape;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -21,8 +22,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "CalculatorController", urlPatterns = {"/CalcController"})
 public class CalculatorController extends HttpServlet {
-    private static final String RESULT_PAGE = "labTwo.jsp";
+    private static final String LAB2_RESULT_PAGE = "labTwo.jsp";
+    private static final String LAB3_RESULT_PAGE = "labThree.jsp";
     private static final String ERROR_MSG = "ERROR";
+    private static final String CALC_TYPE = "calcType";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,15 +40,38 @@ public class CalculatorController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String destination = RESULT_PAGE;
+        String destination = LAB3_RESULT_PAGE;
+        String calcType = request.getParameter(CALC_TYPE);
+        
+        CalculatorService calculatorService = new CalculatorService();
+        String[] values = new String[2];
+        
         try 
         {
-            String length = request.getParameter("lengthString");
-            String width = request.getParameter("widthString");
-
-            CalculatorService calculatorService = new CalculatorService();
-
-            request.setAttribute("area", calculatorService.calculateRectangleArea(length, width));
+            if(calcType.equalsIgnoreCase("Circle"))
+            {
+                values[0] = request.getParameter("radiusString");
+                request.setAttribute("area", calculatorService.getResultForType(values, GeometricShape.CIRCLE));
+            }
+            else if(calcType.equalsIgnoreCase("Triangle"))
+            {
+                values[0] = request.getParameter("aSideString");
+                values[1] = request.getParameter("bSideString");
+                request.setAttribute("area", calculatorService.getResultForType(values, GeometricShape.TRIANGLE));
+            }
+            else if(calcType.equalsIgnoreCase("Rectangle"))
+            {
+                values[0] = request.getParameter("lengthString");
+                values[1] = request.getParameter("widthString");
+                request.setAttribute("area", calculatorService.getResultForType(values, GeometricShape.RECTANGLE));
+            }
+            else
+            {
+                destination = LAB2_RESULT_PAGE;
+                String length = request.getParameter("lengthString");
+                String width = request.getParameter("widthString");
+                request.setAttribute("area", calculatorService.calculateRectangleArea(length, width));
+            }
         } 
         catch (Exception e) 
         {

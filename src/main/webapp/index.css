@@ -11,14 +11,16 @@ and open the template in the editor.
 */
 
 html {
-    background-image: url("background.png");
+    background-image: url("images/background.png");
     font-family: 'Roboto', sans-serif;
+    height: 100%;
 }
 
 .centerContainer {
     box-shadow: 1em 0 15px -4px rgba(0, 0, 0, 0.1), -1em 0 8px -4px rgba(0, 0, 0, 0.1);
     margin: auto;
     position: absolute;
+    overflow-y: scroll;
     top: 0;
     left: 0;
     bottom: 0;
@@ -27,6 +29,7 @@ html {
     margin-right: auto;
     align-content: center;
     width: 75%;
+    height: 100%;
     background-color: whitesmoke;
     border-left-style: solid;
     border-right-style: solid;
@@ -37,22 +40,13 @@ html {
 main {
     padding-left: 2em;
     padding-right: 2em;
+    height: 100%;
 }
 
 header {
     padding-left: 2em;
     border-bottom: 1px solid #dcdcdc;
     margin-bottom: 1em;
-}
-
-.rectangle {
-    width: 20em;
-    height: 10em;
-    margin: 2em;
-    float:left;
-    background-image: url("rect.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
 }
 
 .rectangleContainer {
